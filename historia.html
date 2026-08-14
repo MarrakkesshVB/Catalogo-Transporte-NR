@@ -38,8 +38,6 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="preload" href="assets/adn.splinecode" as="fetch" crossorigin="anonymous">
-  <link rel="modulepreload" href="js/spline-runtime.js">
 </head>
 <body>
 
@@ -109,11 +107,9 @@
     </a>
   </div>
 
-  <!-- ===== SECCIÓN ADN (SPLINE) — HERO DE LA PÁGINA ===== -->
+  <!-- ===== SECCIÓN ADN (THREE.JS PROCEDURAL) — HERO DE LA PÁGINA ===== -->
   <section class="adn-section" id="adnSection">
-    <div class="adn-stage" id="adnStage">
-      <div class="adn-fallback">🧬</div>
-    </div>
+    <div class="adn-stage" id="adnStage" aria-hidden="true"></div>
     <div class="adn-content">
       <p class="adn-eyebrow">NUESTRO ADN</p>
       <h2 class="adn-title">El ADN que nos mueve</h2>
@@ -303,27 +299,10 @@
     <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
   </a>
 
-    <script>lucide.createIcons();</script>
+  <script>lucide.createIcons();</script>
   <script src="js/main.js"></script>
-  <script type="module">
-    const stage = document.getElementById('adnStage');
-    if (stage) {
-      (async () => {
-        try {
-          const { Application } = await import('./js/spline-runtime.js');
-          const canvas = document.createElement('canvas');
-          canvas.style.opacity = '0';
-          canvas.style.transition = 'opacity .9s ease';
-          stage.innerHTML = '';
-          stage.appendChild(canvas);
-          const app = new Application(canvas);
-          await app.load('assets/adn.splinecode');
-          requestAnimationFrame(() => { canvas.style.opacity = '1'; });
-        } catch (e) {
-          console.warn('Spline no disponible:', e);
-        }
-      })();
-    }
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="js/dna.js"></script>
 </body>
 </html>

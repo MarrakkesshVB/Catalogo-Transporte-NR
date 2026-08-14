@@ -1395,3 +1395,6 @@ body {
 
 /* ===== ADN v8: fondo unificado sin salto de color ===== */
 .adn-section{background:#181818}
+
+/* ===== ADN v9: poster estático que cobra vida ===== */
+.adn-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center;opacity:.95;pointer-events:none}
