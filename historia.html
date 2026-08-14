@@ -39,6 +39,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preload" href="assets/adn.splinecode" as="fetch" crossorigin="anonymous">
+  <link rel="modulepreload" href="js/spline-runtime.js">
 </head>
 <body>
 
@@ -302,14 +303,14 @@
     <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
   </a>
 
-  <script>lucide.createIcons();</script>
+    <script>lucide.createIcons();</script>
   <script src="js/main.js"></script>
   <script type="module">
     const stage = document.getElementById('adnStage');
     if (stage) {
       (async () => {
         try {
-          const { Application } = await import('https://unpkg.com/@splinetool/runtime/build/runtime.js');
+          const { Application } = await import('js/spline-runtime.js');
           const canvas = document.createElement('canvas');
           canvas.style.opacity = '0';
           canvas.style.transition = 'opacity .9s ease';
@@ -323,25 +324,6 @@
         }
       })();
     }
-  </script>
-  const stage = document.getElementById('adnStage');
-  if (stage) {
-    const io = new IntersectionObserver(async (entries) => {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      try {
-        const { Application } = await import('https://unpkg.com/@splinetool/runtime/build/runtime.js');
-        const canvas = document.createElement('canvas');
-        stage.innerHTML = '';
-        stage.appendChild(canvas);
-        const app = new Application(canvas);
-        await app.load('assets/adn.splinecode');
-      } catch (e) {
-        console.warn('Spline no disponible: fallback activo');
-      }
-    }, { rootMargin: '200px' });
-    io.observe(stage);
-  }
   </script>
 </body>
 </html>
