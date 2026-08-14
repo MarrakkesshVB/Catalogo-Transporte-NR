@@ -1,0 +1,6 @@
+{
+  "name": "Transporte Nueva Roma",
+  "description": "Experiencia web inmersiva 3D y plataforma corporativa de transporte de cargas y logística nacional para Transporte Nueva Roma.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

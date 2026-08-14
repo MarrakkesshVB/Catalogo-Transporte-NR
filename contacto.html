@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Environment & Polyfill Fetch Compatibility Guard */
+    (function() {
+      try {
+        var _fetch = window.fetch ? window.fetch.bind(window) : undefined;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return _fetch; },
+          set: function(fn) { _fetch = fn; },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {
+        try {
+          var _protoFetch = Window.prototype.fetch;
+          Object.defineProperty(Window.prototype, 'fetch', {
+            get: function() { return _protoFetch; },
+            set: function(fn) { _protoFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (err) {}
+      }
+    })();
+  </script>
+  <title>Contacto & Atención al Cliente | Transporte Nueva Roma</title>
+  <meta name="description" content="Póngase en contacto con Transporte Nueva Roma. Teléfono +54 9 3492 651140, email recepcion@nuevaroma.com.ar o visítenos en Rafaela, Santa Fe." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E40AF'/><path d='M25 75 L25 25 L45 25 L65 58 L65 25 L75 25 L75 75 L55 75 L35 42 L35 75 Z' fill='%23FFFFFF'/><rect x='25' y='78' width='50' height='6' rx='3' fill='%23F97316'/></svg>" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar-contact" id="topContactBar">
+    <div style="display: flex; align-items: center; gap: 1.25rem;">
+      <a href="tel:+5493492651140">
+        <i data-lucide="phone-call" style="width: 14px; height: 14px;"></i>
+        <span>Atención Central: +54 9 3492 651140</span>
+      </a>
+      <span style="opacity: 0.5;">|</span>
+      <a href="mailto:recepcion@nuevaroma.com.ar">
+        <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
+        <span>recepcion@nuevaroma.com.ar</span>
+      </a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 800; background: rgba(0,0,0,0.08); padding: 0.2rem 0.6rem; border-radius: 4px;">
+        <i data-lucide="shield-check" style="width: 13px; height: 13px;"></i>
+        <span>GESTIÓN DE CONTRARREEMBOLSOS GARANTIZADA</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">NR</div>
+        <div class="logo-text-group">
+          <span class="logo-title">NUEVA ROMA</span>
+          <span class="logo-tagline">TRANSPORTE & LOGÍSTICA</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="sucursales.html" class="nav-link">Sucursales</a>
+        <a href="historia.html" class="nav-link">Nosotros</a>
+        <a href="clientes.html" class="nav-link">Clientes</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="programar-envio.html" class="btn-primary-orange">
+          <span>PROGRAMAR ENVÍO</span>
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Abrir menú">
+          <i data-lucide="menu" style="width: 26px; height: 26px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="sucursales.html" class="nav-link">Sucursales</a>
+    <a href="historia.html" class="nav-link">Nosotros</a>
+    <a href="clientes.html" class="nav-link">Clientes</a>
+    <a href="contacto.html" class="nav-link active">Contacto</a>
+    <a href="programar-envio.html" class="btn-primary-orange" style="text-align: center; justify-content: center; margin-top: 0.5rem;">
+      <span>PROGRAMAR ENVÍO</span>
+    </a>
+  </div>
+
+  <!-- MAIN CONTACT CONTENT -->
+  <main class="content-layer" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="container-editorial">
+      
+      <!-- Header -->
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="section-tag" style="background: var(--color-orange-soft); color: var(--color-orange-hover);">Canales de Atención</span>
+        <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: var(--color-blue); line-height: 1.1; margin: 0.75rem 0 1.25rem;">
+          Estamos a su disposición para coordinar su logística.
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.65;">
+          Comuníquese con nuestros ejecutivos comerciales, soporte de seguimiento de guías o departamento de administración de contrarreembolsos.
+        </p>
+      </div>
+
+      <!-- Contact Form & Cards Grid -->
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3.5rem; align-items: start; margin-bottom: 4rem;">
+        
+        <!-- Form -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card);">
+          <h2 style="font-size: 1.6rem; font-weight: 900; color: var(--color-blue); margin-bottom: 0.5rem;">Envíenos un mensaje</h2>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem;">Respondemos todas las consultas en menos de 2 horas hábiles.</p>
+
+          <form id="contactPageForm" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+              <div class="form-group">
+                <label class="form-label" for="contactNombre">Nombre y Apellido *</label>
+                <input type="text" id="contactNombre" class="form-input" placeholder="Ej. Carlos Martínez" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactEmpresa">Empresa / Razón Social</label>
+                <input type="text" id="contactEmpresa" class="form-input" placeholder="Ej. Distribuidora Santa Fe" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+              <div class="form-group">
+                <label class="form-label" for="contactEmail">Correo Electrónico *</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="carlos@empresa.com.ar" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactTel">Teléfono / WhatsApp *</label>
+                <input type="tel" id="contactTel" class="form-input" placeholder="+54 9 ..." required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactMotivo">Motivo de Contacto</label>
+              <select id="contactMotivo" class="form-input">
+                <option value="cotizacion">Cotización de Transporte / Fletes</option>
+                <option value="contrarreembolsos">Consulta sobre Contrarreembolsos</option>
+                <option value="cuenta-corriente">Apertura de Cuenta Corriente</option>
+                <option value="seguimiento">Seguimiento de Envío en Curso</option>
+                <option value="otro">Otras consultas</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactMensaje">Mensaje / Detalle de la Consulta *</label>
+              <textarea id="contactMensaje" class="form-input" rows="4" placeholder="Indique origen, destino aproximado, tipo de mercadería o consulta específica..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-orange" style="justify-content: center; font-size: 0.95rem; padding: 0.85rem;">
+              <span>ENVIAR MENSAJE AHORA</span>
+              <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+            </button>
+            <div id="contactFormStatus" style="font-size: 0.88rem; font-weight: 700; text-align: center; margin-top: 0.5rem; display: none;"></div>
+          </form>
+        </div>
+
+        <!-- Info Column -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-subtle);">
+            <div class="badge-icon-circle" style="background: var(--color-orange-soft); color: var(--color-orange); margin-bottom: 1rem;">
+              <i data-lucide="phone-call" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--color-blue); margin-bottom: 0.4rem;">Atención Telefónica</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 1rem;">Comuníquese con nuestra mesa de despacho central.</p>
+            <a href="tel:+5493492651140" style="font-size: 1.15rem; font-weight: 900; color: var(--color-blue); text-decoration: none;">+54 9 3492 651140</a>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-subtle);">
+            <div class="badge-icon-circle" style="background: var(--color-celeste-soft); color: var(--color-blue); margin-bottom: 1rem;">
+              <i data-lucide="mail" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--color-blue); margin-bottom: 0.4rem;">Correo Corporativo</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 1rem;">Recepción de solicitudes y rendiciones de contrarreembolso.</p>
+            <a href="mailto:recepcion@nuevaroma.com.ar" style="font-size: 1rem; font-weight: 800; color: var(--color-blue); text-decoration: none; word-break: break-all;">recepcion@nuevaroma.com.ar</a>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-subtle);">
+            <div class="badge-icon-circle" style="background: rgba(30, 64, 175, 0.08); color: var(--color-blue); margin-bottom: 1rem;">
+              <i data-lucide="building" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--color-blue); margin-bottom: 0.4rem;">Casa Central</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted);">Ruta Nacional 34 Km 220, Parque Industrial Rafaela, Santa Fe, Argentina.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SHARED FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <div class="logo-badge" style="background: var(--color-orange);">NR</div>
+          <div class="logo-text-group">
+            <span class="logo-title" style="color: #FFFFFF;">NUEVA ROMA</span>
+            <span class="logo-tagline" style="color: #FDB933;">TRANSPORTE & LOGÍSTICA</span>
+          </div>
+        </div>
+        <p>Empresa líder en transporte de cargas generales, paquetería y gestión de contrarreembolsos en Argentina.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Navegación</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios y Manifiesto</a></li>
+          <li><a href="sucursales.html">Nuestras Sucursales</a></li>
+          <li><a href="historia.html">Historia y Equipo</a></li>
+          <li><a href="clientes.html">Clientes & Testimonios</a></li>
+          <li><a href="programar-envio.html">Programar Envío</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Contacto</h4>
+        <div class="footer-contact-item">
+          <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="tel:+5493492651140">+54 9 3492 651140</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="mail" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="mailto:recepcion@nuevaroma.com.ar">recepcion@nuevaroma.com.ar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 Transporte Nueva Roma S.R.L. — Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const form = document.getElementById('contactPageForm');
+    const status = document.getElementById('contactFormStatus');
+    if (form && status) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        status.style.display = 'block';
+        status.style.color = 'var(--color-blue)';
+        status.textContent = 'Enviando mensaje...';
+        setTimeout(() => {
+          status.style.color = '#16A34A';
+          status.textContent = '✓ ¡Mensaje recibido con éxito! Un asesor se contactará en breve al teléfono indicado.';
+          form.reset();
+        }, 800);
+      });
+    }
+  </script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Environment & Polyfill Fetch Compatibility Guard */
+    (function() {
+      try {
+        var _fetch = window.fetch ? window.fetch.bind(window) : undefined;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return _fetch; },
+          set: function(fn) { _fetch = fn; },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {
+        try {
+          var _protoFetch = Window.prototype.fetch;
+          Object.defineProperty(Window.prototype, 'fetch', {
+            get: function() { return _protoFetch; },
+            set: function(fn) { _protoFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (err) {}
+      }
+    })();
+  </script>
+  <title>Servicios y Manifiesto de Carga | Transporte Nueva Roma</title>
+  <meta name="description" content="Servicios integrales de transporte de carga completa (FTL), paquetería consolidada (LTL), gestión de contrarreembolsos y logística 3PL en Argentina." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E40AF'/><path d='M25 75 L25 25 L45 25 L65 58 L65 25 L75 25 L75 75 L55 75 L35 42 L35 75 Z' fill='%23FFFFFF'/><rect x='25' y='78' width='50' height='6' rx='3' fill='%23F97316'/></svg>" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar-contact" id="topContactBar">
+    <div style="display: flex; align-items: center; gap: 1.25rem;">
+      <a href="tel:+5493492651140">
+        <i data-lucide="phone-call" style="width: 14px; height: 14px;"></i>
+        <span>Atención Central: +54 9 3492 651140</span>
+      </a>
+      <span style="opacity: 0.5;">|</span>
+      <a href="mailto:recepcion@nuevaroma.com.ar">
+        <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
+        <span>recepcion@nuevaroma.com.ar</span>
+      </a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 800; background: rgba(0,0,0,0.08); padding: 0.2rem 0.6rem; border-radius: 4px;">
+        <i data-lucide="shield-check" style="width: 13px; height: 13px;"></i>
+        <span>GESTIÓN DE CONTRARREEMBOLSOS GARANTIZADA</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">NR</div>
+        <div class="logo-text-group">
+          <span class="logo-title">NUEVA ROMA</span>
+          <span class="logo-tagline">TRANSPORTE & LOGÍSTICA</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="servicios.html" class="nav-link active">Servicios</a>
+        <a href="sucursales.html" class="nav-link">Sucursales</a>
+        <a href="historia.html" class="nav-link">Nosotros</a>
+        <a href="clientes.html" class="nav-link">Clientes</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="programar-envio.html" class="btn-primary-orange">
+          <span>PROGRAMAR ENVÍO</span>
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Abrir menú">
+          <i data-lucide="menu" style="width: 26px; height: 26px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="servicios.html" class="nav-link active">Servicios</a>
+    <a href="sucursales.html" class="nav-link">Sucursales</a>
+    <a href="historia.html" class="nav-link">Nosotros</a>
+    <a href="clientes.html" class="nav-link">Clientes</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="programar-envio.html" class="btn-primary-orange" style="text-align: center; justify-content: center; margin-top: 0.5rem;">
+      <span>PROGRAMAR ENVÍO</span>
+    </a>
+  </div>
+
+  <!-- MAIN SERVICES CONTENT -->
+  <main class="content-layer" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="container-editorial">
+      
+      <!-- Page Hero Header -->
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="section-tag" style="background: var(--color-orange-soft); color: var(--color-orange-hover);">Catálogo & Manifiesto</span>
+        <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: var(--color-blue); line-height: 1.1; margin: 0.75rem 0 1.25rem;">
+          Soluciones de transporte diseñadas para cada escala logística.
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.65;">
+          Desde el transporte de cargas completas en semirremolques hasta la distribución capilar con cobro de <strong>contrarreembolsos</strong>, ponemos a su disposición una flota moderna, tecnología satelital y conductores homologados.
+        </p>
+      </div>
+
+      <!-- Quick Service Filter Tabs -->
+      <div style="display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 1.5rem; margin-bottom: 2.5rem;">
+        <a href="#cargas-generales" class="btn-secondary-blue" style="font-size: 0.82rem; padding: 0.5rem 1.1rem; white-space: nowrap;">Cargas Generales (FTL)</a>
+        <a href="#carga-consolidada" class="btn-secondary-blue" style="font-size: 0.82rem; padding: 0.5rem 1.1rem; white-space: nowrap;">Carga Consolidada (LTL)</a>
+        <a href="#contrarreembolsos" class="btn-secondary-blue" style="font-size: 0.82rem; padding: 0.5rem 1.1rem; white-space: nowrap; border-color: var(--color-orange); color: var(--color-orange-hover);">Contrarreembolsos</a>
+        <a href="#almacenamiento" class="btn-secondary-blue" style="font-size: 0.82rem; padding: 0.5rem 1.1rem; white-space: nowrap;">Almacenamiento 3PL</a>
+        <a href="#urgentes" class="btn-secondary-blue" style="font-size: 0.82rem; padding: 0.5rem 1.1rem; white-space: nowrap;">Envíos Urgentes</a>
+      </div>
+
+      <!-- Detailed Sections -->
+      <div style="display: flex; flex-direction: column; gap: 4rem;">
+        
+        <!-- Service 1: Cargas Generales -->
+        <section id="cargas-generales" style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 3rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); scroll-margin-top: 100px;">
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <div class="manifest-icon-badge" style="width: 44px; height: 44px;">
+                  <i data-lucide="truck" style="width: 24px; height: 24px;"></i>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.84rem; font-weight: 700; color: var(--color-blue);">SRV-01 // FULL TRUCKLOAD (FTL)</span>
+              </div>
+              <h2 style="font-size: 2rem; font-weight: 900; color: var(--color-blue); margin-bottom: 1rem;">Cargas Generales & Completas</h2>
+              <p style="font-size: 1rem; color: #475569; line-height: 1.65; margin-bottom: 1.5rem;">
+                Servicio exclusivo de unidad completa para industrias, fabricantes y distribuidores masivos. Asignamos un camión exclusivo desde el origen hasta el punto final de destino sin paradas intermedias de transbordo.
+              </p>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm);">
+                  <strong style="color: var(--color-blue); display: block; font-size: 0.9rem;">Tipos de Unidades</strong>
+                  <span style="font-size: 0.82rem; color: var(--text-muted);">Sider de lona corrediza, Baranda Volcable, Furgón térmico</span>
+                </div>
+                <div style="background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm);">
+                  <strong style="color: var(--color-blue); display: block; font-size: 0.9rem;">Capacidad de Carga</strong>
+                  <span style="font-size: 0.82rem; color: var(--text-muted);">Hasta 28.000 kg • 90 m³ de volumen • 28/30 pallets estándar</span>
+                </div>
+              </div>
+              <a href="programar-envio.html?tipo=cargas-generales" class="btn-primary-orange">
+                <span>COTIZAR CARGA COMPLETA</span>
+                <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+            <div style="background: var(--bg-immersive); border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--border-light); text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 800; color: var(--color-blue); text-transform: uppercase; margin-bottom: 1rem;">Seguridad Garantizada</div>
+              <ul style="list-style: none; text-align: left; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem;">
+                <li>🔒 Precinto de seguridad numerado en origen</li>
+                <li>📡 Custodia satelital GPS con botón de pánico</li>
+                <li>🛡️ Seguro de mercadería en tránsito con póliza líder</li>
+                <li>⏱️ Turnos de descarga programados en plantas</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Service 2: Contrarreembolsos (Flagship) -->
+        <section id="contrarreembolsos" style="background: #FFFDFB; border-radius: var(--radius-lg); padding: 3rem; border: 2px solid rgba(249, 115, 22, 0.4); box-shadow: var(--shadow-card); scroll-margin-top: 100px; position: relative;">
+          <div style="position: absolute; top: 1.5rem; right: 1.5rem; background: var(--color-orange); color: #FFFFFF; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: var(--radius-pill);">
+            ESPECIALIDAD DESTACADA
+          </div>
+          
+          <div style="max-width: 750px; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="manifest-icon-badge" style="width: 44px; height: 44px; background: var(--color-orange); color: #FFFFFF;">
+                <i data-lucide="badge-dollar-sign" style="width: 24px; height: 24px;"></i>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.84rem; font-weight: 700; color: var(--color-orange);">SRV-03 // GESTIÓN DE COBRANZA</span>
+            </div>
+            <h2 style="font-size: 2.2rem; font-weight: 900; color: var(--color-blue); margin-bottom: 1rem;">Gestión Integral de Contrarreembolsos</h2>
+            <p style="font-size: 1.05rem; color: #334155; line-height: 1.65;">
+              Permita que sus clientes abonen la mercadería en el momento exacto de recibirla. Transporte Nueva Roma gestiona la recaudación con máximas garantías y le transfiere los fondos de manera ágil y transparente.
+            </p>
+          </div>
+
+          <!-- Step Process Diagram -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem;">
+              <div style="font-size: 1.5rem; font-weight: 900; color: var(--color-orange); margin-bottom: 0.35rem;">01. Despacho</div>
+              <p style="font-size: 0.84rem; color: var(--text-muted);">Usted entrega la mercadería con el remito indicando el valor exacto a cobrar al destinatario.</p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem;">
+              <div style="font-size: 1.5rem; font-weight: 900; color: var(--color-orange); margin-bottom: 0.35rem;">02. Cobranza</div>
+              <p style="font-size: 0.84rem; color: var(--text-muted);">Nuestro personal realiza el cobro en efectivo o transferencia bancaria contra la entrega del bulto.</p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem;">
+              <div style="font-size: 1.5rem; font-weight: 900; color: var(--color-orange); margin-bottom: 0.35rem;">03. Rendición</div>
+              <p style="font-size: 0.84rem; color: var(--text-muted);">En 48 a 72 hs hábiles recibe la liquidación digital detallada y los fondos en su cuenta bancaria.</p>
+            </div>
+          </div>
+
+          <a href="programar-envio.html?tipo=contrarreembolsos" class="btn-primary-orange" style="font-size: 0.95rem; padding: 0.85rem 1.8rem;">
+            <span>SOLICITAR SERVICIO DE CONTRARREEMBOLSO</span>
+            <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+          </a>
+        </section>
+
+        <!-- Service 3: Carga Consolidada & Paquetería -->
+        <section id="carga-consolidada" style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 3rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); scroll-margin-top: 100px;">
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <div class="manifest-icon-badge" style="width: 44px; height: 44px;">
+                  <i data-lucide="package-check" style="width: 24px; height: 24px;"></i>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.84rem; font-weight: 700; color: var(--color-blue);">SRV-02 // LESS THAN TRUCKLOAD (LTL)</span>
+              </div>
+              <h2 style="font-size: 2rem; font-weight: 900; color: var(--color-blue); margin-bottom: 1rem;">Carga Consolidada & Paquetería Corporativa</h2>
+              <p style="font-size: 1rem; color: #475569; line-height: 1.65; margin-bottom: 1.5rem;">
+                Envíe bultos sueltos, cajas, repuestos o pallets individuales sin necesidad de contratar un camión completo. Agrupamos y ruteamos su carga para maximizar la velocidad y reducir los costos logísticos.
+              </p>
+              <a href="programar-envio.html?tipo=paqueteria" class="btn-primary-orange">
+                <span>COTIZAR PAQUETERÍA</span>
+                <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+            <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--border-light);">
+              <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--color-blue); margin-bottom: 1rem;">Beneficios Clave</h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.86rem; color: var(--text-main);">
+                <li>✓ Salidas diarias entre Santa Fe, Buenos Aires, Rosario y Córdoba</li>
+                <li>✓ Retiro en fábrica o recepción en nuestras sucursales</li>
+                <li>✓ Trazabilidad en tiempo real con código de guía</li>
+                <li>✓ Tarifas escalonadas por peso y volumen m³</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SHARED FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <div class="logo-badge" style="background: var(--color-orange);">NR</div>
+          <div class="logo-text-group">
+            <span class="logo-title" style="color: #FFFFFF;">NUEVA ROMA</span>
+            <span class="logo-tagline" style="color: #FDB933;">TRANSPORTE & LOGÍSTICA</span>
+          </div>
+        </div>
+        <p>Empresa líder en transporte de cargas generales, paquetería y gestión de contrarreembolsos con cobertura en toda la Argentina.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Navegación</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios y Manifiesto</a></li>
+          <li><a href="sucursales.html">Nuestras Sucursales</a></li>
+          <li><a href="historia.html">Historia y Equipo</a></li>
+          <li><a href="clientes.html">Clientes & Testimonios</a></li>
+          <li><a href="programar-envio.html">Programar Envío</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Especialidades</h4>
+        <ul class="footer-links-list">
+          <li><a href="servicios.html#cargas-generales">Cargas Generales (FTL)</a></li>
+          <li><a href="servicios.html#carga-consolidada">Carga Consolidada (LTL)</a></li>
+          <li><a href="servicios.html#contrarreembolsos">Gestión de Contrarreembolsos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Casa Central</h4>
+        <div class="footer-contact-item">
+          <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <span>Ruta Nacional 34 Km 220, Parque Industrial Rafaela, Santa Fe</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="tel:+5493492651140">+54 9 3492 651140</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="mail" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="mailto:recepcion@nuevaroma.com.ar">recepcion@nuevaroma.com.ar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 Transporte Nueva Roma S.R.L. — Todos los derechos reservados.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="contacto.html" style="color: #94A3B8; text-decoration: none;">Términos & Condiciones</a>
+        <a href="contacto.html" style="color: #94A3B8; text-decoration: none;">Política de Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5493492651140?text=Hola%20Transporte%20Nueva%20Roma,%20quiero%20hacer%20una%20consulta%20sobre%20servicios." target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Contactar por WhatsApp">
+    <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+  </a>
+
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

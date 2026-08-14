@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Environment & Polyfill Fetch Compatibility Guard */
+    (function() {
+      try {
+        var _fetch = window.fetch ? window.fetch.bind(window) : undefined;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return _fetch; },
+          set: function(fn) { _fetch = fn; },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {
+        try {
+          var _protoFetch = Window.prototype.fetch;
+          Object.defineProperty(Window.prototype, 'fetch', {
+            get: function() { return _protoFetch; },
+            set: function(fn) { _protoFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (err) {}
+      }
+    })();
+  </script>
+  <title>Nuestras Sucursales & Centros de Transferencia | Transporte Nueva Roma</title>
+  <meta name="description" content="Red de sucursales estratégicas en Rafaela, Buenos Aires, Rosario, Córdoba y Santa Fe Capital. Horarios, depósitos y contacto directo." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E40AF'/><path d='M25 75 L25 25 L45 25 L65 58 L65 25 L75 25 L75 75 L55 75 L35 42 L35 75 Z' fill='%23FFFFFF'/><rect x='25' y='78' width='50' height='6' rx='3' fill='%23F97316'/></svg>" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar-contact" id="topContactBar">
+    <div style="display: flex; align-items: center; gap: 1.25rem;">
+      <a href="tel:+5493492651140">
+        <i data-lucide="phone-call" style="width: 14px; height: 14px;"></i>
+        <span>Atención Central: +54 9 3492 651140</span>
+      </a>
+      <span style="opacity: 0.5;">|</span>
+      <a href="mailto:recepcion@nuevaroma.com.ar">
+        <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
+        <span>recepcion@nuevaroma.com.ar</span>
+      </a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 800; background: rgba(0,0,0,0.08); padding: 0.2rem 0.6rem; border-radius: 4px;">
+        <i data-lucide="shield-check" style="width: 13px; height: 13px;"></i>
+        <span>GESTIÓN DE CONTRARREEMBOLSOS GARANTIZADA</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">NR</div>
+        <div class="logo-text-group">
+          <span class="logo-title">NUEVA ROMA</span>
+          <span class="logo-tagline">TRANSPORTE & LOGÍSTICA</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="sucursales.html" class="nav-link active">Sucursales</a>
+        <a href="historia.html" class="nav-link">Nosotros</a>
+        <a href="clientes.html" class="nav-link">Clientes</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="programar-envio.html" class="btn-primary-orange">
+          <span>PROGRAMAR ENVÍO</span>
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Abrir menú">
+          <i data-lucide="menu" style="width: 26px; height: 26px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="sucursales.html" class="nav-link active">Sucursales</a>
+    <a href="historia.html" class="nav-link">Nosotros</a>
+    <a href="clientes.html" class="nav-link">Clientes</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="programar-envio.html" class="btn-primary-orange" style="text-align: center; justify-content: center; margin-top: 0.5rem;">
+      <span>PROGRAMAR ENVÍO</span>
+    </a>
+  </div>
+
+  <!-- MAIN SUCURSALES CONTENT -->
+  <main class="content-layer" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="container-editorial">
+      
+      <!-- Header -->
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="section-tag" style="background: var(--color-celeste-soft); color: var(--color-blue);">Red de Distribución</span>
+        <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: var(--color-blue); line-height: 1.1; margin: 0.75rem 0 1.25rem;">
+          Nuestras Sucursales & Centros de Transferencia.
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.65;">
+          Contamos con depósitos propios y muelles de carga equipados con hidroelevadores y vigilancia 24/7 en los principales nodos industriales del país.
+        </p>
+      </div>
+
+      <!-- Sucursales Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+        
+        <!-- Sucursal 1: Rafaela -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); position: relative;">
+          <div style="position: absolute; top: 1.5rem; right: 1.5rem; background: var(--color-blue); color: #FFFFFF; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.1em; padding: 0.25rem 0.75rem; border-radius: 4px;">
+            CASA CENTRAL
+          </div>
+          <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--color-blue); margin-bottom: 0.5rem;">Rafaela (Santa Fe)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Hub principal de operaciones, taller mecánico central y administración.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem; margin-bottom: 2rem;">
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Ruta Nac. 34 Km 220, Parque Industrial</span>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <a href="tel:+5493492651140" style="color: var(--color-blue); text-decoration: none; font-weight: 700;">+54 9 3492 651140</a>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="clock" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Lunes a Viernes: 07:30 a 19:00 hs | Sábados: 08:00 a 12:30 hs</span>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Rafaela+Santa+Fe+Argentina" target="_blank" rel="noopener noreferrer" class="btn-secondary-blue" style="width: 100%; justify-content: center; font-size: 0.88rem;">
+            <i data-lucide="navigation" style="width: 15px; height: 15px;"></i>
+            <span>Ver Ubicación en Mapa</span>
+          </a>
+        </div>
+
+        <!-- Sucursal 2: Buenos Aires -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card);">
+          <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--color-blue); margin-bottom: 0.5rem;">Buenos Aires (CABA / AMBA)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Centro de transferencia interurbano y distribución metropolitana.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem; margin-bottom: 2rem;">
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Centro de Transferencia de Cargas (CTC), Soldati</span>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span style="font-weight: 700; color: var(--color-blue);">+54 11 4918-2000</span>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="clock" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Lunes a Viernes: 08:00 a 18:30 hs</span>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Centro+de+Transferencia+de+Cargas+CABA" target="_blank" rel="noopener noreferrer" class="btn-secondary-blue" style="width: 100%; justify-content: center; font-size: 0.88rem;">
+            <i data-lucide="navigation" style="width: 15px; height: 15px;"></i>
+            <span>Ver Ubicación en Mapa</span>
+          </a>
+        </div>
+
+        <!-- Sucursal 3: Rosario -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card);">
+          <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--color-blue); margin-bottom: 0.5rem;">Rosario (Santa Fe)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Conexión portuaria, acopio industrial y distribución regional sur.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem; margin-bottom: 2rem;">
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Zona Oeste / Circunvalación 2080, Rosario</span>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span style="font-weight: 700; color: var(--color-blue);">+54 341 456-7890</span>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="clock" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Lunes a Viernes: 08:00 a 18:00 hs</span>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Rosario+Santa+Fe+Argentina" target="_blank" rel="noopener noreferrer" class="btn-secondary-blue" style="width: 100%; justify-content: center; font-size: 0.88rem;">
+            <i data-lucide="navigation" style="width: 15px; height: 15px;"></i>
+            <span>Ver Ubicación en Mapa</span>
+          </a>
+        </div>
+
+        <!-- Sucursal 4: Córdoba -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card);">
+          <h3 style="font-size: 1.4rem; font-weight: 900; color: var(--color-blue); margin-bottom: 0.5rem;">Córdoba Capital</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">Depósito logístico centro mediterráneo y enlace con el NOA.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem; margin-bottom: 2rem;">
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Av. Sabattini 4500, Córdoba</span>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span style="font-weight: 700; color: var(--color-blue);">+54 351 489-1122</span>
+            </div>
+            <div style="display: flex; gap: 0.65rem;">
+              <i data-lucide="clock" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+              <span>Lunes a Viernes: 08:00 a 17:30 hs</span>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/?q=Cordoba+Capital+Argentina" target="_blank" rel="noopener noreferrer" class="btn-secondary-blue" style="width: 100%; justify-content: center; font-size: 0.88rem;">
+            <i data-lucide="navigation" style="width: 15px; height: 15px;"></i>
+            <span>Ver Ubicación en Mapa</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SHARED FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <div class="logo-badge" style="background: var(--color-orange);">NR</div>
+          <div class="logo-text-group">
+            <span class="logo-title" style="color: #FFFFFF;">NUEVA ROMA</span>
+            <span class="logo-tagline" style="color: #FDB933;">TRANSPORTE & LOGÍSTICA</span>
+          </div>
+        </div>
+        <p>Empresa líder en transporte de cargas generales, paquetería y gestión de contrarreembolsos en Argentina.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Navegación</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios y Manifiesto</a></li>
+          <li><a href="sucursales.html">Nuestras Sucursales</a></li>
+          <li><a href="historia.html">Historia y Equipo</a></li>
+          <li><a href="clientes.html">Clientes & Testimonios</a></li>
+          <li><a href="programar-envio.html">Programar Envío</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Contacto</h4>
+        <div class="footer-contact-item">
+          <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="tel:+5493492651140">+54 9 3492 651140</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="mail" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="mailto:recepcion@nuevaroma.com.ar">recepcion@nuevaroma.com.ar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 Transporte Nueva Roma S.R.L. — Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

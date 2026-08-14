@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Environment & Polyfill Fetch Compatibility Guard */
+    (function() {
+      try {
+        var _fetch = window.fetch ? window.fetch.bind(window) : undefined;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return _fetch; },
+          set: function(fn) { _fetch = fn; },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {
+        try {
+          var _protoFetch = Window.prototype.fetch;
+          Object.defineProperty(Window.prototype, 'fetch', {
+            get: function() { return _protoFetch; },
+            set: function(fn) { _protoFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (err) {}
+      }
+    })();
+  </script>
+  <title>Transporte Nueva Roma | Cargas, Logística Nacional y Contrarreembolsos</title>
+  <meta name="description" content="Transporte de cargas generales, paquetería consolidada, logística integral y servicios de contrarreembolsos en toda la Argentina con flota propia y monitoreo satelital 24/7." />
+  
+  <!-- Favicon / Meta -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E40AF'/><path d='M25 75 L25 25 L45 25 L65 58 L65 25 L75 25 L75 75 L55 75 L35 42 L35 75 Z' fill='%23FFFFFF'/><rect x='25' y='78' width='50' height='6' rx='3' fill='%23F97316'/></svg>" />
+  
+  <!-- Fonts: Plus Jakarta Sans & Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Three.js CDN (r128 - rock solid compatibility) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP CONTACT & NOTICE BAR (Amarillo #FDB933)
+       ========================================================================== -->
+  <div class="top-bar-contact" id="topContactBar">
+    <div style="display: flex; align-items: center; gap: 1.25rem;">
+      <a href="tel:+5493492651140" id="topPhoneLink">
+        <i data-lucide="phone-call" style="width: 14px; height: 14px;"></i>
+        <span>Atención Central: +54 9 3492 651140</span>
+      </a>
+      <span style="opacity: 0.5;">|</span>
+      <a href="mailto:recepcion@nuevaroma.com.ar" id="topMailLink">
+        <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
+        <span>recepcion@nuevaroma.com.ar</span>
+      </a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 800; background: rgba(0,0,0,0.08); padding: 0.2rem 0.6rem; border-radius: 4px;">
+        <i data-lucide="shield-check" style="width: 13px; height: 13px;"></i>
+        <span>GESTIÓN DE CONTRARREEMBOLSOS GARANTIZADA</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SHARED STICKY HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" id="brandLogoLink">
+        <div class="logo-badge">NR</div>
+        <div class="logo-text-group">
+          <span class="logo-title">NUEVA ROMA</span>
+          <span class="logo-tagline">TRANSPORTE & LOGÍSTICA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link active" id="navHome">Inicio</a>
+        <a href="servicios.html" class="nav-link" id="navServicios">Servicios</a>
+        <a href="sucursales.html" class="nav-link" id="navSucursales">Sucursales</a>
+        <a href="historia.html" class="nav-link" id="navHistoria">Nosotros</a>
+        <a href="clientes.html" class="nav-link" id="navClientes">Clientes</a>
+        <a href="contacto.html" class="nav-link" id="navContacto">Contacto</a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="header-actions">
+        <a href="programar-envio.html" class="btn-primary-orange" id="headerCtaBtn">
+          <span>PROGRAMAR ENVÍO</span>
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Abrir menú" id="mobileMenuBtn">
+          <i data-lucide="menu" style="width: 26px; height: 26px;"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="index.html" class="nav-link active">Inicio</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="sucursales.html" class="nav-link">Sucursales</a>
+    <a href="historia.html" class="nav-link">Nosotros</a>
+    <a href="clientes.html" class="nav-link">Clientes</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="programar-envio.html" class="btn-primary-orange" style="text-align: center; justify-content: center; margin-top: 0.5rem;">
+      <span>PROGRAMAR ENVÍO</span>
+    </a>
+  </div>
+
+  <!-- ==========================================================================
+       3D CINEMATIC VIEWPORT ("El Scroll es la Ruta")
+       ========================================================================== -->
+  <div class="experience-viewport" aria-hidden="true">
+    <canvas id="canvas3d"></canvas>
+    <div class="ambient-dust-layer"></div>
+    <div class="road-guide-line"></div>
+    
+    <!-- Automatic Fallback if WebGL unavailable -->
+    <div class="fallback-truck-container">
+      <div class="fallback-truck-card">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="logo-badge" style="width: 36px; height: 36px; font-size: 1rem;">NR</div>
+          <div>
+            <div style="font-weight: 800; color: #1E40AF; font-size: 0.95rem;">Unidad en Tránsito Activo</div>
+            <div style="font-size: 0.75rem; color: #64748B;">Monitoreo Satelital GPS 24/7</div>
+          </div>
+        </div>
+        <div style="font-size: 0.85rem; color: #334155; line-height: 1.4;">
+          Flota moderna conectando Rafaela, Rosario, Buenos Aires y Córdoba con trazabilidad permanente.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CONTENT SCENES (Interactive Scroll Narrative)
+       ========================================================================== -->
+  <main class="content-layer">
+
+    <!-- SCENE 1: HERO & TRACKING CONSOLE -->
+    <section class="scene-section" id="heroScene">
+      <div class="container-editorial">
+        <div class="hero-grid">
+          
+          <div class="hero-copy-column">
+            
+            <!-- Badge -->
+            <div class="hero-pill-badge" id="heroPillBadge">
+              <span class="pulse-indicator"></span>
+              <span>Líderes en Logística & Carga Federal</span>
+            </div>
+
+            <!-- Main Editorial Headline -->
+            <h1 class="hero-headline" id="heroTitle">
+              Movemos Argentina <br>
+              <span class="highlight-orange">de punta a punta.</span>
+            </h1>
+
+            <p class="hero-subtext" id="heroSubtitle">
+              Transporte de cargas generales, paquetería consolidada y gestión integral de 
+              <strong>contrarreembolsos</strong>. Eficiencia, seguridad y puntualidad sobre cada kilómetro de ruta.
+            </p>
+
+            <!-- CTA Actions -->
+            <div class="hero-cta-group" id="heroCtaGroup">
+              <a href="programar-envio.html" class="btn-primary-orange" id="heroPrimaryCta">
+                <span>Programá tu envío</span>
+                <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+              </a>
+              <a href="#rutaSection" class="btn-secondary-blue" id="heroSecondaryCta">
+                <i data-lucide="map-pin" style="width: 16px; height: 16px;"></i>
+                <span>Ver Cobertura</span>
+              </a>
+            </div>
+
+            <!-- Dedicated Live Tracking Widget -->
+            <div class="tracking-widget-card" id="heroTrackingWidget">
+              <div class="tracking-header">
+                <span class="tracking-title">
+                  <i data-lucide="radar" style="width: 16px; height: 16px; color: var(--color-orange);"></i>
+                  Rastrear Envío en Tiempo Real
+                </span>
+                <span class="tracking-tag">SISTEMA ACTIVO</span>
+              </div>
+              <form class="tracking-form-inline" id="trackingForm">
+                <input 
+                  type="text" 
+                  class="tracking-input" 
+                  id="trackingInput" 
+                  placeholder="Ej: NR-84920" 
+                  aria-label="Número de guía o remito de envío"
+                  required
+                />
+                <button type="submit" class="tracking-btn" id="trackingSubmitBtn">
+                  <span>RASTREAR</span>
+                  <i data-lucide="search" style="width: 15px; height: 15px;"></i>
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- Empty Column for 3D Space on PC -->
+          <div class="hero-3d-space-column"></div>
+
+        </div>
+      </div>
+
+      <div class="scene-scroll-indicator">
+        <div class="mouse-scroll-wheel">
+          <div class="wheel-dot"></div>
+        </div>
+        <span>El scroll es la ruta</span>
+      </div>
+    </section>
+
+    <!-- SCENE 2: FORTALEZA OPERATIVA & BADGES FLOTANTES -->
+    <section class="scene-section" id="fortalezaSection">
+      <div class="container-editorial">
+        
+        <div style="max-width: 680px;">
+          <span class="section-tag">Nuestra Fortaleza</span>
+          <h2 class="section-title">Infraestructura diseñada para cumplir siempre.</h2>
+          <p class="section-description">
+            Contamos con recursos propios, tecnología satelital de vanguardia y un equipo humano con vocación de servicio que garantiza la integridad de cada despacho.
+          </p>
+        </div>
+
+        <div class="floating-metrics-grid">
+          
+          <div class="metric-glass-badge" id="metricBadgeYears">
+            <div class="badge-icon-circle">
+              <i data-lucide="award" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="metric-value">+20 Años</div>
+            <div class="metric-label">Trayectoria Ininterrumpida</div>
+            <p class="metric-description">
+              Creciendo junto al sector productivo argentino con seriedad, transparencia y solidez financiera.
+            </p>
+          </div>
+
+          <div class="metric-glass-badge" id="metricBadgeCoverage">
+            <div class="badge-icon-circle">
+              <i data-lucide="globe" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Cobertura Nacional</div>
+            <p class="metric-description">
+              Conexión directa entre los principales polos industriales: Santa Fe, Buenos Aires, Córdoba y Cuyo.
+            </p>
+          </div>
+
+          <div class="metric-glass-badge" id="metricBadgeTracking">
+            <div class="badge-icon-circle">
+              <i data-lucide="satellite" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="metric-value">24/7</div>
+            <div class="metric-label">Monitoreo Satelital</div>
+            <p class="metric-description">
+              Telemetría en tiempo real con sensorización de apertura de puertas y temperatura controlada.
+            </p>
+          </div>
+
+          <div class="metric-glass-badge" id="metricBadgeFleet">
+            <div class="badge-icon-circle">
+              <i data-lucide="truck" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="metric-value">Flota Propia</div>
+            <div class="metric-label">Unidades Homologadas</div>
+            <p class="metric-description">
+              Semirremolques, camiones chasis y furgones equipados bajo normativas Euro V y mantenimiento riguroso.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCENE 3: "LA RUTA" - MAPA EDITORIAL ARGENTINA & SUCURSALES -->
+    <section class="scene-section" id="rutaSection">
+      <div class="container-editorial">
+        
+        <div style="max-width: 680px;">
+          <span class="section-tag">Red de Distribución</span>
+          <h2 class="section-title">El mapa de nuestras rutas federales.</h2>
+          <p class="section-description">
+            Nodos estratégicos interconectados diariamente para asegurar entregas en 24 y 48 horas en los centros neurálgicos del país.
+          </p>
+        </div>
+
+        <div class="route-map-layout">
+          
+          <!-- Interactive Map Container -->
+          <div class="interactive-map-frame" id="argentinaMapFrame">
+            <svg class="svg-map-argentina" viewBox="0 0 400 550" xmlns="http://www.w3.org/2000/svg">
+              <!-- Stylized Argentina Silhouette Background -->
+              <path d="M 210 40 L 260 90 L 280 140 L 290 190 L 270 230 L 240 280 L 220 330 L 190 380 L 170 440 L 140 500 L 130 520 L 120 480 L 130 430 L 140 370 L 130 300 L 140 230 L 150 170 L 160 110 L 170 60 Z" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2" />
+              
+              <!-- Arterial Route Lines (Orange & Blue Highway Glow) -->
+              <path d="M 215 155 L 210 225 L 235 270 L 265 295" fill="none" stroke="#F97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 4" />
+              <path d="M 210 225 L 180 250 L 150 280" fill="none" stroke="#00A2F4" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 4" />
+              <path d="M 210 225 L 230 235 L 235 270" fill="none" stroke="#F97316" stroke-width="3.5" stroke-linecap="round" />
+
+              <!-- Hub Nodes -->
+              <!-- Rafaela (HQ) -->
+              <circle class="map-node-pulse" data-hub="rafaela" cx="210" cy="225" r="14" fill="#F97316" stroke="#FFFFFF" stroke-width="3" />
+              <text x="210" y="212" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="900" fill="#1E40AF" text-anchor="middle">RAFAELA (CASA CENTRAL)</text>
+
+              <!-- Buenos Aires -->
+              <circle class="map-node-pulse" data-hub="buenosaires" cx="265" cy="295" r="9" fill="#1E40AF" stroke="#FFFFFF" stroke-width="2" />
+              <text x="280" y="300" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#1E40AF">Buenos Aires</text>
+
+              <!-- Rosario -->
+              <circle class="map-node-pulse" data-hub="rosario" cx="235" cy="270" r="9" fill="#1E40AF" stroke="#FFFFFF" stroke-width="2" />
+              <text x="248" y="272" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#1E40AF">Rosario</text>
+
+              <!-- Córdoba -->
+              <circle class="map-node-pulse" data-hub="cordoba" cx="180" cy="250" r="8" fill="#1E40AF" stroke="#FFFFFF" stroke-width="2" />
+              <text x="135" y="254" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#1E40AF">Córdoba</text>
+
+              <!-- Santa Fe -->
+              <circle class="map-node-pulse" data-hub="santafe" cx="230" cy="235" r="8" fill="#1E40AF" stroke="#FFFFFF" stroke-width="2" />
+              <text x="245" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#1E40AF">Santa Fe</text>
+
+              <!-- Tucumán -->
+              <circle class="map-node-pulse" data-hub="tucuman" cx="215" cy="155" r="7" fill="#64748B" stroke="#FFFFFF" stroke-width="2" />
+              <text x="160" y="158" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#64748B">Tucumán</text>
+            </svg>
+          </div>
+
+          <!-- Hub Interactive Directory -->
+          <div class="hub-stops-list" id="hubListContainer">
+            
+            <div class="hub-stop-item active" data-hub="rafaela" id="hubRafaela">
+              <div>
+                <div class="hub-city">
+                  <i data-lucide="building-2" style="width: 18px; height: 18px; color: var(--color-orange);"></i>
+                  <span>Rafaela, Santa Fe</span>
+                  <span class="hub-badge-hq">CASA CENTRAL</span>
+                </div>
+                <div class="hub-detail-text">Parque Industrial Rafaela • Salidas diarias a todo el país</div>
+              </div>
+              <i data-lucide="chevron-right" style="width: 18px; height: 18px; color: var(--color-orange);"></i>
+            </div>
+
+            <div class="hub-stop-item" data-hub="buenosaires" id="hubBsAs">
+              <div>
+                <div class="hub-city">
+                  <i data-lucide="truck" style="width: 18px; height: 18px; color: var(--color-blue);"></i>
+                  <span>Buenos Aires (AMBA)</span>
+                </div>
+                <div class="hub-detail-text">Centro Logístico Dock Sud / CABA • Entregas y Retiros 24 hs</div>
+              </div>
+              <i data-lucide="chevron-right" style="width: 18px; height: 18px; color: #94A3B8;"></i>
+            </div>
+
+            <div class="hub-stop-item" data-hub="rosario" id="hubRosario">
+              <div>
+                <div class="hub-city">
+                  <i data-lucide="anchor" style="width: 18px; height: 18px; color: var(--color-blue);"></i>
+                  <span>Rosario, Santa Fe</span>
+                </div>
+                <div class="hub-detail-text">Circunvalación & Pte. Perón • Conexión Portuaria e Industrial</div>
+              </div>
+              <i data-lucide="chevron-right" style="width: 18px; height: 18px; color: #94A3B8;"></i>
+            </div>
+
+            <div class="hub-stop-item" data-hub="cordoba" id="hubCordoba">
+              <div>
+                <div class="hub-city">
+                  <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-blue);"></i>
+                  <span>Córdoba Capital</span>
+                </div>
+                <div class="hub-detail-text">Av. Circunvalación Sur • Conexión Región Centro & Cuyo</div>
+              </div>
+              <i data-lucide="chevron-right" style="width: 18px; height: 18px; color: #94A3B8;"></i>
+            </div>
+
+            <!-- Active Hub Live Card -->
+            <div style="background: var(--color-celeste-soft); border-radius: var(--radius-md); padding: 1.25rem; border: 1px solid rgba(0, 162, 244, 0.3);">
+              <div style="font-size: 0.75rem; font-weight: 800; color: var(--color-blue); text-transform: uppercase; margin-bottom: 0.3rem;">Detalle del Hub Seleccionado</div>
+              <div id="mapDetailCity" style="font-weight: 800; color: var(--color-blue-dark); font-size: 0.95rem;">Rafaela, Santa Fe (Casa Central & Hub Logístico Norte)</div>
+              <div id="mapDetailTime" style="font-size: 0.82rem; color: #0369A1; margin: 0.2rem 0;">Operación 24 hs • Frecuencia diaria directa</div>
+              <div id="mapDetailAddress" style="font-size: 0.82rem; color: var(--text-muted);">Ruta Nacional 34 Km 220, Parque Industrial Rafaela</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCENE 4: MANIFIESTO DE CARGA - SERVICIOS EDITORIALES -->
+    <section class="scene-section" id="serviciosSection">
+      <div class="container-editorial">
+        
+        <div style="max-width: 680px;">
+          <span class="section-tag">Manifiesto de Carga</span>
+          <h2 class="section-title">Soluciones logísticas de alta precisión.</h2>
+          <p class="section-description">
+            Servicios estructurados para adaptarse al volumen, frecuencia y exigencias de cada eslabón de la cadena de suministros.
+          </p>
+        </div>
+
+        <div class="cargo-manifest-grid">
+          
+          <!-- Card 1: Cargas Generales -->
+          <div class="manifest-card" id="serviceCardGeneral">
+            <div>
+              <div class="manifest-header">
+                <div class="manifest-icon-badge">
+                  <i data-lucide="boxes" style="width: 28px; height: 28px;"></i>
+                </div>
+                <span class="manifest-code">SRV-01 // FTL</span>
+              </div>
+              <h3 class="manifest-title">Cargas Generales & Paletizadas</h3>
+              <p class="manifest-body">
+                Transporte en unidades completas (Full Truckload) y cargas paletizadas con precintado inviolable y seguro de mercadería integral.
+              </p>
+              <ul class="manifest-features-list">
+                <li>Semirremolques Sider y Baranda Volcable</li>
+                <li>Capacidad hasta 28 toneladas / 90 m³</li>
+                <li>Carga y descarga programada</li>
+              </ul>
+            </div>
+            <div class="manifest-action">
+              <a href="programar-envio.html?tipo=cargas-generales" class="manifest-link">
+                <span>Cotizar Carga Completa</span>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Carga Consolidada -->
+          <div class="manifest-card" id="serviceCardConsolidada">
+            <div>
+              <div class="manifest-header">
+                <div class="manifest-icon-badge">
+                  <i data-lucide="package-search" style="width: 28px; height: 28px;"></i>
+                </div>
+                <span class="manifest-code">SRV-02 // LTL</span>
+              </div>
+              <h3 class="manifest-title">Carga Consolidada & Paquetería</h3>
+              <p class="manifest-body">
+                Servicio fraccionado optimizado para envíos de menor volumen comercial, repuestos, insumos y encomiendas corporativas.
+              </p>
+              <ul class="manifest-features-list">
+                <li>Ruteo inteligente de entrega</li>
+                <li>Trazabilidad por código de bulto</li>
+                <li>Salidas y despachos con frecuencia diaria</li>
+              </ul>
+            </div>
+            <div class="manifest-action">
+              <a href="programar-envio.html?tipo=paqueteria" class="manifest-link">
+                <span>Cotizar Paquetería</span>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Contrarreembolsos (Specialty) -->
+          <div class="manifest-card" id="serviceCardContrarreembolsos" style="border-color: rgba(249, 115, 22, 0.4); background: #FFFDFB;">
+            <div>
+              <div class="manifest-header">
+                <div class="manifest-icon-badge" style="background: var(--color-orange); color: #FFFFFF;">
+                  <i data-lucide="badge-dollar-sign" style="width: 28px; height: 28px;"></i>
+                </div>
+                <span class="manifest-code" style="color: var(--color-orange); font-weight: 800;">SRV-03 // ESPECIALIDAD</span>
+              </div>
+              <h3 class="manifest-title">Servicio de Contrarreembolsos</h3>
+              <p class="manifest-body">
+                Cobro contra entrega garantizado con liquidación bancaria ágil y rendición transparente en 48/72 horas.
+              </p>
+              <ul class="manifest-features-list">
+                <li>Cobro en efectivo o transferencias directas</li>
+                <li>Auditoría y rendición digital por remito</li>
+                <li>Garantía de custodia de valores</li>
+              </ul>
+            </div>
+            <div class="manifest-action">
+              <a href="programar-envio.html?tipo=contrarreembolsos" class="manifest-link">
+                <span>Gestionar Contrarreembolso</span>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Logística Integral -->
+          <div class="manifest-card" id="serviceCardLogistica">
+            <div>
+              <div class="manifest-header">
+                <div class="manifest-icon-badge">
+                  <i data-lucide="warehouse" style="width: 28px; height: 28px;"></i>
+                </div>
+                <span class="manifest-code">SRV-04 // 3PL</span>
+              </div>
+              <h3 class="manifest-title">Almacenamiento & Logística Integral</h3>
+              <p class="manifest-body">
+                Gestión de inventarios, preparación de pedidos (picking & packing) y cross-docking en nuestros depósitos centrales.
+              </p>
+              <ul class="manifest-features-list">
+                <li>Depósitos con seguridad y control 24/7</li>
+                <li>Control de stock digitalizado</li>
+                <li>Distribución capilar a puntos de venta</li>
+              </ul>
+            </div>
+            <div class="manifest-action">
+              <a href="servicios.html#almacenamiento" class="manifest-link">
+                <span>Ver Soluciones 3PL</span>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5: Envíos Urgentes -->
+          <div class="manifest-card" id="serviceCardExpress">
+            <div>
+              <div class="manifest-header">
+                <div class="manifest-icon-badge">
+                  <i data-lucide="clock-arrow-up" style="width: 28px; height: 28px;"></i>
+                </div>
+                <span class="manifest-code">SRV-05 // EXPRESS</span>
+              </div>
+              <h3 class="manifest-title">Entregas Puerta a Puerta & Urgencias</h3>
+              <p class="manifest-body">
+                Retiros y entregas directas en planta sin intermediarios para insumos críticos, paradas de fábrica y emergencias comerciales.
+              </p>
+              <ul class="manifest-features-list">
+                <li>Vehículos dedicados punto a punto</li>
+                <li>Prioridad absoluta en ruta</li>
+                <li>Confirmación digital de entrega inmediata</li>
+              </ul>
+            </div>
+            <div class="manifest-action">
+              <a href="contacto.html" class="manifest-link">
+                <span>Solicitar Despacho Urgente</span>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6: Mudanzas Corporativas -->
+          <div class="manifest-card" id="serviceCardMudanzas">
+            <div>
+              <div class="manifest-header">
+                <div class="manifest-icon-badge">
+                  <i data-lucide="building" style="width: 28px; height: 28px;"></i>
+                </div>
+                <span class="manifest-code">SRV-06 // B2B</span>
+              </div>
+              <h3 class="manifest-title">Mudanzas & Traslado Corporativo</h3>
+              <p class="manifest-body">
+                Traslado de oficinas, maquinaria liviana, mobiliario corporativo y equipamiento técnico con embalaje especializado.
+              </p>
+              <ul class="manifest-features-list">
+                <li>Personal calificado para estiba y carga</li>
+                <li>Materiales de protección anti-impacto</li>
+                <li>Cobertura de seguro específica para equipos</li>
+              </ul>
+            </div>
+            <div class="manifest-action">
+              <a href="servicios.html#mudanzas" class="manifest-link">
+                <span>Consultar Servicio B2B</span>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCENE 5: ESCENA DE CONFIANZA, STATS Y TESTIMONIOS -->
+    <section class="scene-section" id="confianzaSection">
+      <div class="container-editorial">
+        
+        <!-- Animated Stats Ribbon -->
+        <div class="stats-ribbon" id="statsRibbon">
+          
+          <div class="stat-box-inner">
+            <div class="stat-number" data-target="2500000" data-prefix="+" data-suffix=" km">+2.500.000 km</div>
+            <div class="stat-label">Recorridos al Año</div>
+          </div>
+
+          <div class="stat-box-inner">
+            <div class="stat-number" data-target="15000" data-prefix="+" data-suffix="">+15.000</div>
+            <div class="stat-label">Clientes & Empresas</div>
+          </div>
+
+          <div class="stat-box-inner">
+            <div class="stat-number" data-target="99" data-prefix="" data-suffix=".8%">99.8%</div>
+            <div class="stat-label">Efectividad de Entrega</div>
+          </div>
+
+          <div class="stat-box-inner">
+            <div class="stat-number" data-target="100" data-prefix="" data-suffix="%">100%</div>
+            <div class="stat-label">Monitoreo Satelital GPS</div>
+          </div>
+
+        </div>
+
+        <div style="max-width: 680px; margin-bottom: 3rem;">
+          <span class="section-tag">Testimonios de Clientes</span>
+          <h2 class="section-title">La confianza de quienes mueven su producción con nosotros.</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          
+          <div class="testimonial-editorial-card" id="testimonio1">
+            <div>
+              <div class="quote-stars">★★★★★</div>
+              <p class="quote-text">
+                "La gestión de contrarreembolsos de Transporte Nueva Roma transformó nuestra logística comercial. La puntualidad en las rendiciones y la seguridad en los traslados nos brindan total tranquilidad."
+              </p>
+            </div>
+            <div class="author-info">
+              <div class="author-avatar">MB</div>
+              <div>
+                <div class="author-name">Martín Benítez</div>
+                <div class="author-company">Director de Operaciones • Metalúrgica del Centro</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-editorial-card" id="testimonio2">
+            <div>
+              <div class="quote-stars">★★★★★</div>
+              <p class="quote-text">
+                "Envíos diarios desde Rafaela a Buenos Aires sin un solo retraso en más de tres años de trabajo continuo. La trazabilidad y la atención personalizada de su equipo marcan una verdadera diferencia."
+              </p>
+            </div>
+            <div class="author-info">
+              <div class="author-avatar">CL</div>
+              <div>
+                <div class="author-name">Carolina López</div>
+                <div class="author-company">Gerente de Logística • Distribuidora Agroindustrial</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-editorial-card" id="testimonio3">
+            <div>
+              <div class="quote-stars">★★★★★</div>
+              <p class="quote-text">
+                "Excelente predisposición para cargas urgentes y fraccionadas. Siempre encontramos una respuesta rápida y soluciones a medida para nuestros clientes del interior del país."
+              </p>
+            </div>
+            <div class="author-info">
+              <div class="author-avatar">GR</div>
+              <div>
+                <div class="author-name">Gonzalo Rossi</div>
+                <div class="author-company">Socio Fundador • Rossi Repuestos Nacionales</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCENE 6: CTA FINAL & WIZARD TEASER -->
+    <section class="scene-section" id="finalCtaSection" style="min-height: 80vh;">
+      <div class="container-editorial">
+        <div class="final-cta-banner">
+          
+          <span class="section-tag" style="background: #FFFFFF; box-shadow: var(--shadow-subtle);">Comenzá Tu Experiencia</span>
+          <h2 class="final-cta-title">¿Listo para potenciar la logística de tu empresa?</h2>
+          <p class="final-cta-desc">
+            Cotizá y programá tu despacho en solo 3 simples pasos a través de nuestro wizard interactivo, o contactá a un asesor especializado.
+          </p>
+
+          <div class="final-cta-actions">
+            <a href="programar-envio.html" class="btn-primary-orange" style="font-size: 1rem; padding: 0.9rem 2.2rem;" id="finalProgramarBtn">
+              <i data-lucide="calendar-plus" style="width: 20px; height: 20px;"></i>
+              <span>PROGRAMAR MI ENVÍO AHORA</span>
+            </a>
+            <a href="contacto.html" class="btn-secondary-blue" style="font-size: 1rem; padding: 0.9rem 2rem;" id="finalContactoBtn">
+              <i data-lucide="phone" style="width: 18px; height: 18px;"></i>
+              <span>Hablar con un Asesor</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SHARED FOOTER (Dark Navy Corporate)
+       ========================================================================== -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-container">
+      
+      <!-- Brand & Mission -->
+      <div class="footer-brand">
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <div class="logo-badge" style="background: var(--color-orange);">NR</div>
+          <div class="logo-text-group">
+            <span class="logo-title" style="color: #FFFFFF;">NUEVA ROMA</span>
+            <span class="logo-tagline" style="color: #FDB933;">TRANSPORTE & LOGÍSTICA</span>
+          </div>
+        </div>
+        <p>
+          Empresa líder en transporte de cargas generales, paquetería y gestión de contrarreembolsos con cobertura en toda la República Argentina. Más de 20 años uniendo rutas y empresas.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="footer-column-title">Navegación</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios y Manifiesto</a></li>
+          <li><a href="sucursales.html">Nuestras Sucursales</a></li>
+          <li><a href="historia.html">Historia y Equipo</a></li>
+          <li><a href="clientes.html">Clientes & Testimonios</a></li>
+          <li><a href="programar-envio.html">Programar Envío</a></li>
+        </ul>
+      </div>
+
+      <!-- Services List -->
+      <div>
+        <h4 class="footer-column-title">Especialidades</h4>
+        <ul class="footer-links-list">
+          <li><a href="servicios.html#cargas-generales">Cargas Generales (FTL)</a></li>
+          <li><a href="servicios.html#carga-consolidada">Carga Consolidada (LTL)</a></li>
+          <li><a href="servicios.html#contrarreembolsos">Gestión de Contrarreembolsos</a></li>
+          <li><a href="servicios.html#almacenamiento">Almacenamiento 3PL</a></li>
+          <li><a href="servicios.html#urgentes">Envíos Urgentes Puerta a Puerta</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="footer-column-title">Casa Central & Contacto</h4>
+        <div class="footer-contact-item">
+          <i data-lucide="map-pin" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <span>Ruta Nacional 34 Km 220, Parque Industrial Rafaela, Santa Fe, Argentina</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="tel:+5493492651140">+54 9 3492 651140</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="mail" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="mailto:recepcion@nuevaroma.com.ar">recepcion@nuevaroma.com.ar</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="clock" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <span>Lunes a Viernes: 07:00 a 19:00 hs<br>Sábados: 08:00 a 13:00 hs</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Legal Bar -->
+    <div class="footer-bottom-bar">
+      <div>
+        © 2026 Transporte Nueva Roma S.R.L. — Todos los derechos reservados. CUIT 30-71249821-4.
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="contacto.html" style="color: #94A3B8; text-decoration: none;">Términos & Condiciones</a>
+        <a href="contacto.html" style="color: #94A3B8; text-decoration: none;">Política de Privacidad</a>
+        <a href="contacto.html" style="color: #94A3B8; text-decoration: none;">AFIP Formulario 960/D</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       WHATSAPP FLOATING BUTTON
+       ========================================================================== -->
+  <a 
+    href="https://wa.me/5493492651140?text=Hola%20Transporte%20Nueva%20Roma,%20quiero%20hacer%20una%20consulta%20sobre%20env%C3%ADos." 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="whatsapp-float-btn" 
+    id="whatsappFloatBtn" 
+    aria-label="Contactar por WhatsApp"
+  >
+    <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+  </a>
+
+  <!-- ==========================================================================
+       TRACKING MODAL (Simulación en Vivo de Remito / Guía)
+       ========================================================================== -->
+  <div class="modal-overlay" id="trackingModal" role="dialog" aria-modal="true" aria-labelledby="modalGuideTitle">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar modal">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+        <div class="logo-badge" style="width: 40px; height: 40px; font-size: 1.1rem;">NR</div>
+        <div>
+          <h3 id="modalGuideTitle" style="font-size: 1.15rem; font-weight: 800; color: var(--color-blue); line-height: 1.1;">
+            Estado de Guía: <span id="trackingCodeDisplay" style="color: var(--color-orange); font-family: var(--font-mono);">NR-84920</span>
+          </h3>
+          <span style="font-size: 0.78rem; color: #059669; font-weight: 700; background: #ECFDF5; padding: 0.15rem 0.5rem; border-radius: 4px; display: inline-block; margin-top: 0.2rem;">
+            EN TRÁNSITO ACTIVO (Ruta Nacional 34)
+          </span>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-secondary); border-radius: var(--radius-sm); padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-light);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.84rem; margin-bottom: 0.75rem;">
+          <div>
+            <strong style="color: var(--text-muted); display: block;">ORIGEN:</strong>
+            <span style="font-weight: 700; color: var(--text-main);">Rafaela (Hub Central)</span>
+          </div>
+          <div>
+            <strong style="color: var(--text-muted); display: block;">DESTINO:</strong>
+            <span style="font-weight: 700; color: var(--text-main);">Buenos Aires (AMBA)</span>
+          </div>
+        </div>
+
+        <div style="font-size: 0.84rem; border-top: 1px dashed var(--border-light); padding-top: 0.75rem;">
+          <strong style="color: var(--text-muted); display: block;">POSICIÓN ACTUAL GPS:</strong>
+          <span id="trackingLocationText" style="font-weight: 700; color: var(--color-blue);">Ruta Nac. 34 Km 148 - San Martín de las Escobas</span>
+          <div id="trackingTimestampText" style="font-size: 0.76rem; color: var(--text-light); margin-top: 0.2rem;">
+            Reporte satelital en tiempo real
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Steps -->
+      <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.85rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #059669; margin-top: 5px;"></div>
+          <div>
+            <strong>Recepción y Clasificación en Hub Rafaela</strong>
+            <div style="font-size: 0.76rem; color: var(--text-muted);">Bulto verificado y precintado con remito digital</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--color-orange); margin-top: 5px;"></div>
+          <div>
+            <strong style="color: var(--color-orange);">En Tránsito hacia Centro de Distribución AMBA</strong>
+            <div style="font-size: 0.76rem; color: var(--text-muted);">Unidad Semirremolque Scania R450 Euro V con custodia GPS</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.75rem; align-items: flex-start; opacity: 0.5;">
+          <div style="width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1; margin-top: 5px;"></div>
+          <div>
+            <strong>Entrega en Domicilio / Retiro en Sucursal</strong>
+            <div style="font-size: 0.76rem; color: var(--text-muted);">Estimado: Mañana 09:30 hs con gestión de contrarreembolso</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <a href="https://wa.me/5493492651140?text=Hola,%20quisiera%20consultar%20por%20la%20gu%C3%ADa%20NR-84920" target="_blank" class="btn-secondary-blue" style="font-size: 0.84rem; padding: 0.6rem 1rem;">
+          <i data-lucide="message-circle" style="width: 15px; height: 15px;"></i>
+          <span>Consultar por WhatsApp</span>
+        </a>
+        <button onclick="document.getElementById('trackingModal').classList.remove('active'); document.body.style.overflow='';" class="btn-primary-orange" style="font-size: 0.84rem; padding: 0.6rem 1.2rem;">
+          <span>ENTENDIDO</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lucide Icon Renderer Initialization -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <!-- Application Logic & 3D Experience Engine Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/experience.js"></script>
+
+</body>
+</html>

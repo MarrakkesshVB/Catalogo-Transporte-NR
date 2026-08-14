@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Environment & Polyfill Fetch Compatibility Guard */
+    (function() {
+      try {
+        var _fetch = window.fetch ? window.fetch.bind(window) : undefined;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return _fetch; },
+          set: function(fn) { _fetch = fn; },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {
+        try {
+          var _protoFetch = Window.prototype.fetch;
+          Object.defineProperty(Window.prototype, 'fetch', {
+            get: function() { return _protoFetch; },
+            set: function(fn) { _protoFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (err) {}
+      }
+    })();
+  </script>
+  <title>Clientes & Casos de Éxito | Transporte Nueva Roma</title>
+  <meta name="description" content="Empresas líderes confían en Transporte Nueva Roma para su logística industrial, distribución comercial y gestión de cobranzas contra entrega." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E40AF'/><path d='M25 75 L25 25 L45 25 L65 58 L65 25 L75 25 L75 75 L55 75 L35 42 L35 75 Z' fill='%23FFFFFF'/><rect x='25' y='78' width='50' height='6' rx='3' fill='%23F97316'/></svg>" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar-contact" id="topContactBar">
+    <div style="display: flex; align-items: center; gap: 1.25rem;">
+      <a href="tel:+5493492651140">
+        <i data-lucide="phone-call" style="width: 14px; height: 14px;"></i>
+        <span>Atención Central: +54 9 3492 651140</span>
+      </a>
+      <span style="opacity: 0.5;">|</span>
+      <a href="mailto:recepcion@nuevaroma.com.ar">
+        <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
+        <span>recepcion@nuevaroma.com.ar</span>
+      </a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 800; background: rgba(0,0,0,0.08); padding: 0.2rem 0.6rem; border-radius: 4px;">
+        <i data-lucide="shield-check" style="width: 13px; height: 13px;"></i>
+        <span>GESTIÓN DE CONTRARREEMBOLSOS GARANTIZADA</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">NR</div>
+        <div class="logo-text-group">
+          <span class="logo-title">NUEVA ROMA</span>
+          <span class="logo-tagline">TRANSPORTE & LOGÍSTICA</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="sucursales.html" class="nav-link">Sucursales</a>
+        <a href="historia.html" class="nav-link">Nosotros</a>
+        <a href="clientes.html" class="nav-link active">Clientes</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="programar-envio.html" class="btn-primary-orange">
+          <span>PROGRAMAR ENVÍO</span>
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Abrir menú">
+          <i data-lucide="menu" style="width: 26px; height: 26px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="sucursales.html" class="nav-link">Sucursales</a>
+    <a href="historia.html" class="nav-link">Nosotros</a>
+    <a href="clientes.html" class="nav-link active">Clientes</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="programar-envio.html" class="btn-primary-orange" style="text-align: center; justify-content: center; margin-top: 0.5rem;">
+      <span>PROGRAMAR ENVÍO</span>
+    </a>
+  </div>
+
+  <!-- MAIN CLIENTS CONTENT -->
+  <main class="content-layer" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="container-editorial">
+      
+      <!-- Header -->
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="section-tag" style="background: var(--color-orange-soft); color: var(--color-orange-hover);">Confianza & Resultados</span>
+        <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: var(--color-blue); line-height: 1.1; margin: 0.75rem 0 1.25rem;">
+          Más de 850 empresas confían diariamente en nosotros.
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.65;">
+          Acompañamos a fabricantes, importadores, distribuidores mayoristas y pymes agroindustriales en su cadena de abastecimiento y ventas contra reembolso.
+        </p>
+      </div>
+
+      <!-- Testimonials Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+        
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="color: var(--color-yellow-dark); display: flex; gap: 0.25rem; margin-bottom: 1rem;">
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+            </div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.65; font-style: italic; margin-bottom: 1.5rem;">
+              "El servicio de contrarreembolsos de Nueva Roma transformó nuestra cobranza en el interior. Rendiciones exactas en tiempo récord y cero mercadería dañada en 4 años de trabajo continuo."
+            </p>
+          </div>
+          <div>
+            <strong style="color: var(--color-blue); font-size: 1rem; display: block;">Ing. Martín Benítez</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Gerente Logístico — Distribuidora Metalúrgica del Litoral</span>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="color: var(--color-yellow-dark); display: flex; gap: 0.25rem; margin-bottom: 1rem;">
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+            </div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.65; font-style: italic; margin-bottom: 1.5rem;">
+              "Despachamos piezas de alta precisión desde Rafaela a Buenos Aires todas las noches. La puntualidad de llegada a primera hora nos permite cumplir sin demoras con nuestros clientes."
+            </p>
+          </div>
+          <div>
+            <strong style="color: var(--color-blue); font-size: 1rem; display: block;">Valeria Rossi</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Directora de Operaciones — Autopartes Santa Fe S.A.</span>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="color: var(--color-yellow-dark); display: flex; gap: 0.25rem; margin-bottom: 1rem;">
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+              <i data-lucide="star" style="width: 18px; height: 18px; fill: currentColor;"></i>
+            </div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.65; font-style: italic; margin-bottom: 1.5rem;">
+              "La atención personalizada y la rápida resolución de consultas marcan una diferencia enorme comparado con otros transportes masivos. Sentimos que cuidan nuestra carga como propia."
+            </p>
+          </div>
+          <div>
+            <strong style="color: var(--color-blue); font-size: 1rem; display: block;">Carlos D'Agostino</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Socio Gerente — AgroInsumos Centro</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Banner -->
+      <div style="background: var(--bg-immersive); border-radius: var(--radius-lg); padding: 3rem 2rem; border: 1px solid var(--border-light); text-align: center;">
+        <h2 style="font-size: 2rem; font-weight: 900; color: var(--color-blue); margin-bottom: 0.75rem;">¿Desea abrir una cuenta corriente corporativa?</h2>
+        <p style="font-size: 1rem; color: #475569; max-width: 600px; margin: 0 auto 1.75rem;">
+          Acceda a tarifas preferenciales por volumen, retiros programados en planta y facturación quincenal o mensual.
+        </p>
+        <a href="contacto.html" class="btn-primary-orange">
+          <span>SOLICITAR ALTA DE CUENTA EMPRESARIAL</span>
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SHARED FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <div class="logo-badge" style="background: var(--color-orange);">NR</div>
+          <div class="logo-text-group">
+            <span class="logo-title" style="color: #FFFFFF;">NUEVA ROMA</span>
+            <span class="logo-tagline" style="color: #FDB933;">TRANSPORTE & LOGÍSTICA</span>
+          </div>
+        </div>
+        <p>Empresa líder en transporte de cargas generales, paquetería y gestión de contrarreembolsos en Argentina.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Navegación</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios y Manifiesto</a></li>
+          <li><a href="sucursales.html">Nuestras Sucursales</a></li>
+          <li><a href="historia.html">Historia y Equipo</a></li>
+          <li><a href="clientes.html">Clientes & Testimonios</a></li>
+          <li><a href="programar-envio.html">Programar Envío</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Contacto Directo</h4>
+        <div class="footer-contact-item">
+          <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="tel:+5493492651140">+54 9 3492 651140</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="mail" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="mailto:recepcion@nuevaroma.com.ar">recepcion@nuevaroma.com.ar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 Transporte Nueva Roma S.R.L. — Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Environment & Polyfill Fetch Compatibility Guard */
+    (function() {
+      try {
+        var _fetch = window.fetch ? window.fetch.bind(window) : undefined;
+        Object.defineProperty(window, 'fetch', {
+          get: function() { return _fetch; },
+          set: function(fn) { _fetch = fn; },
+          configurable: true,
+          enumerable: true
+        });
+      } catch (e) {
+        try {
+          var _protoFetch = Window.prototype.fetch;
+          Object.defineProperty(Window.prototype, 'fetch', {
+            get: function() { return _protoFetch; },
+            set: function(fn) { _protoFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (err) {}
+      }
+    })();
+  </script>
+  <title>Programar Envío & Cotizador Online | Transporte Nueva Roma</title>
+  <meta name="description" content="Cotice y programe su envío de cargas generales, paquetería o contrarreembolsos en tiempo real con Transporte Nueva Roma." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E40AF'/><path d='M25 75 L25 25 L45 25 L65 58 L65 25 L75 25 L75 75 L55 75 L35 42 L35 75 Z' fill='%23FFFFFF'/><rect x='25' y='78' width='50' height='6' rx='3' fill='%23F97316'/></svg>" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar-contact" id="topContactBar">
+    <div style="display: flex; align-items: center; gap: 1.25rem;">
+      <a href="tel:+5493492651140">
+        <i data-lucide="phone-call" style="width: 14px; height: 14px;"></i>
+        <span>Atención Central: +54 9 3492 651140</span>
+      </a>
+      <span style="opacity: 0.5;">|</span>
+      <a href="mailto:recepcion@nuevaroma.com.ar">
+        <i data-lucide="mail" style="width: 14px; height: 14px;"></i>
+        <span>recepcion@nuevaroma.com.ar</span>
+      </a>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; font-weight: 800; background: rgba(0,0,0,0.08); padding: 0.2rem 0.6rem; border-radius: 4px;">
+        <i data-lucide="shield-check" style="width: 13px; height: 13px;"></i>
+        <span>GESTIÓN DE CONTRARREEMBOLSOS GARANTIZADA</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-badge">NR</div>
+        <div class="logo-text-group">
+          <span class="logo-title">NUEVA ROMA</span>
+          <span class="logo-tagline">TRANSPORTE & LOGÍSTICA</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="sucursales.html" class="nav-link">Sucursales</a>
+        <a href="historia.html" class="nav-link">Nosotros</a>
+        <a href="clientes.html" class="nav-link">Clientes</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="programar-envio.html" class="btn-primary-orange active">
+          <span>PROGRAMAR ENVÍO</span>
+          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Abrir menú">
+          <i data-lucide="menu" style="width: 26px; height: 26px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-nav-drawer">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="sucursales.html" class="nav-link">Sucursales</a>
+    <a href="historia.html" class="nav-link">Nosotros</a>
+    <a href="clientes.html" class="nav-link">Clientes</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="programar-envio.html" class="btn-primary-orange" style="text-align: center; justify-content: center; margin-top: 0.5rem;">
+      <span>PROGRAMAR ENVÍO</span>
+    </a>
+  </div>
+
+  <!-- MAIN BOOKING / QUOTATION CONTENT -->
+  <main class="content-layer" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="container-editorial">
+      
+      <!-- Header -->
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="section-tag" style="background: var(--color-orange-soft); color: var(--color-orange-hover);">Despacho Ágil</span>
+        <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: var(--color-blue); line-height: 1.1; margin: 0.75rem 0 1.25rem;">
+          Programe su Carga o Cotice en Tiempo Real.
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.65;">
+          Complete los datos de origen, destino y características de su mercadería. Nuestro sistema calculará la estimación logística y un operador confirmará la reserva de bodega.
+        </p>
+      </div>
+
+      <!-- Booking Form & Summary Container -->
+      <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: start; margin-bottom: 4rem;">
+        
+        <!-- Interactive Form -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card);">
+          <form id="quoteFullForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <!-- Step 1: Route -->
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 900; color: var(--color-orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">Paso 1: Tramo & Destino</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                <div class="form-group">
+                  <label class="form-label" for="bookingOrigen">Localidad de Origen *</label>
+                  <select id="bookingOrigen" class="form-input" required>
+                    <option value="rafaela">Rafaela (Santa Fe)</option>
+                    <option value="buenos-aires">Buenos Aires (CABA / AMBA)</option>
+                    <option value="rosario">Rosario (Santa Fe)</option>
+                    <option value="cordoba">Córdoba Capital</option>
+                    <option value="santa-fe-cap">Santa Fe Capital</option>
+                    <option value="sunchales">Sunchales (Santa Fe)</option>
+                    <option value="esperanza">Esperanza (Santa Fe)</option>
+                    <option value="otra">Otra Localidad</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bookingDestino">Localidad de Destino *</label>
+                  <select id="bookingDestino" class="form-input" required>
+                    <option value="buenos-aires">Buenos Aires (CABA / AMBA)</option>
+                    <option value="rafaela">Rafaela (Santa Fe)</option>
+                    <option value="rosario">Rosario (Santa Fe)</option>
+                    <option value="cordoba">Córdoba Capital</option>
+                    <option value="santa-fe-cap">Santa Fe Capital</option>
+                    <option value="otra">Otra Localidad</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Service & Cargo -->
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 900; color: var(--color-orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">Paso 2: Tipo de Servicio & Mercadería</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="bookingTipoServicio">Modalidad de Transporte *</label>
+                  <select id="bookingTipoServicio" class="form-input" required>
+                    <option value="ltl">Paquetería / Carga Consolidada (LTL)</option>
+                    <option value="ftl">Camión Completo Exclusivo (FTL)</option>
+                    <option value="pallet">Pallet Estándar (1.00 x 1.20 m)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bookingBultos">Cantidad de Bultos / Pallets *</label>
+                  <input type="number" id="bookingBultos" class="form-input" value="1" min="1" max="1000" required />
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                <div class="form-group">
+                  <label class="form-label" for="bookingPeso">Peso Total Estimado (kg) *</label>
+                  <input type="number" id="bookingPeso" class="form-input" value="25" min="1" step="1" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bookingVolumen">Volumen Aprox. (m³)</label>
+                  <input type="number" id="bookingVolumen" class="form-input" value="0.2" step="0.1" min="0.05" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Contrarreembolso Checkbox -->
+            <div style="background: var(--color-orange-soft); border-radius: var(--radius-md); padding: 1.25rem; border: 1px solid rgba(249, 115, 22, 0.3);">
+              <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+                <input type="checkbox" id="bookingCRCheck" style="width: 20px; height: 20px; accent-color: var(--color-orange); margin-top: 2px;" />
+                <div>
+                  <strong style="color: var(--color-blue); font-size: 0.95rem; display: block;">Incluir Gestión de Contrarreembolso</strong>
+                  <span style="font-size: 0.82rem; color: #475569;">Cobramos el valor declarado de la mercadería al destinatario contra entrega y le rendimos en su cuenta bancaria.</span>
+                </div>
+              </label>
+
+              <div id="bookingCRContainer" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed rgba(249, 115, 22, 0.4);">
+                <label class="form-label" for="bookingCRValor">Monto a Cobrar en Destino ($ ARS) *</label>
+                <input type="number" id="bookingCRValor" class="form-input" placeholder="Ej. 150000" />
+              </div>
+            </div>
+
+            <!-- Step 4: Contact info -->
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 900; color: var(--color-orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;">Paso 3: Datos de Contacto</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                <div class="form-group">
+                  <label class="form-label" for="bookingNombre">Nombre y Apellido / Razón Social *</label>
+                  <input type="text" id="bookingNombre" class="form-input" placeholder="Ej. Metalúrgica San Jorge" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bookingTel">Teléfono / WhatsApp *</label>
+                  <input type="tel" id="bookingTel" class="form-input" placeholder="+54 9 ..." required />
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary-orange" style="justify-content: center; font-size: 1rem; padding: 0.9rem; margin-top: 0.5rem;">
+              <span>CONFIRMAR Y PROGRAMAR ENVÍO</span>
+              <i data-lucide="check-circle" style="width: 18px; height: 18px;"></i>
+            </button>
+            <div id="bookingStatusMsg" style="display: none; text-align: center; font-weight: 700; padding: 1rem; border-radius: var(--radius-sm); margin-top: 0.5rem;"></div>
+          </form>
+        </div>
+
+        <!-- Live Estimate Summary Card -->
+        <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); position: sticky; top: 110px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <span style="font-size: 0.8rem; font-weight: 900; color: var(--color-blue); text-transform: uppercase; letter-spacing: 0.05em;">Estimador Logístico</span>
+            <span style="font-size: 0.75rem; background: #DCFCE7; color: #166534; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px;">TARIFA BASE</span>
+          </div>
+
+          <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 1.25rem; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.25rem;">Tiempo estimado de tránsito</div>
+            <div id="liveTransitTime" style="font-size: 1.25rem; font-weight: 900; color: var(--color-blue);">24 a 48 Horas Hábiles</div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Seguro de Carga:</span>
+              <strong style="color: var(--text-main);">Incluido</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Seguimiento Satelital:</span>
+              <strong style="color: var(--text-main);">Activo 24/7</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Gestión de Cobro (CR):</span>
+              <strong id="liveCRLabel" style="color: var(--text-muted);">No seleccionada</strong>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); border-radius: var(--radius-sm); padding: 1rem; font-size: 0.82rem; color: #475569; line-height: 1.5;">
+            💡 <strong>Salidas Diarias:</strong> Las cargas recibidas antes de las 17:00 hs se despachan en la unidad nocturna de esa misma jornada.
+          </div>
+
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="tel:+5493492651140" style="font-size: 0.85rem; color: var(--color-blue); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">
+              <i data-lucide="headset" style="width: 15px; height: 15px;"></i>
+              <span>¿Dudas? Llame al +54 9 3492 651140</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- SHARED FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <div class="logo-badge" style="background: var(--color-orange);">NR</div>
+          <div class="logo-text-group">
+            <span class="logo-title" style="color: #FFFFFF;">NUEVA ROMA</span>
+            <span class="logo-tagline" style="color: #FDB933;">TRANSPORTE & LOGÍSTICA</span>
+          </div>
+        </div>
+        <p>Empresa líder en transporte de cargas generales, paquetería y gestión de contrarreembolsos en Argentina.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Navegación</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios y Manifiesto</a></li>
+          <li><a href="sucursales.html">Nuestras Sucursales</a></li>
+          <li><a href="historia.html">Historia y Equipo</a></li>
+          <li><a href="clientes.html">Clientes & Testimonios</a></li>
+          <li><a href="programar-envio.html">Programar Envío</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-column-title">Contacto</h4>
+        <div class="footer-contact-item">
+          <i data-lucide="phone" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="tel:+5493492651140">+54 9 3492 651140</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="mail" style="width: 18px; height: 18px; color: var(--color-orange); flex-shrink: 0;"></i>
+          <a href="mailto:recepcion@nuevaroma.com.ar">recepcion@nuevaroma.com.ar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 Transporte Nueva Roma S.R.L. — Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    
+    // Contrarreembolso toggle
+    const crCheck = document.getElementById('bookingCRCheck');
+    const crBox = document.getElementById('bookingCRContainer');
+    const crLabel = document.getElementById('liveCRLabel');
+    if (crCheck && crBox) {
+      crCheck.addEventListener('change', () => {
+        if (crCheck.checked) {
+          crBox.style.display = 'block';
+          if (crLabel) {
+            crLabel.textContent = 'Activa con rendición en 48hs';
+            crLabel.style.color = 'var(--color-orange)';
+          }
+        } else {
+          crBox.style.display = 'none';
+          if (crLabel) {
+            crLabel.textContent = 'No seleccionada';
+            crLabel.style.color = 'var(--text-muted)';
+          }
+        }
+      });
+    }
+
+    // Form submission
+    const form = document.getElementById('quoteFullForm');
+    const msg = document.getElementById('bookingStatusMsg');
+    if (form && msg) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const code = 'NR-' + Math.floor(100000 + Math.random() * 900000);
+        msg.style.display = 'block';
+        msg.style.backgroundColor = '#EFF6FF';
+        msg.style.color = 'var(--color-blue)';
+        msg.innerHTML = 'Generando orden de despacho...';
+
+        setTimeout(() => {
+          msg.style.backgroundColor = '#DCFCE7';
+          msg.style.color = '#15803D';
+          msg.innerHTML = `🎉 <strong>¡Envío Programado con Éxito!</strong><br/>Código de Guía Provisorio: <strong style="font-family: monospace; font-size: 1.1rem; color: #166534;">${code}</strong><br/>Un operador de Transporte Nueva Roma se pondrá en contacto para coordinar el retiro.`;
+          form.reset();
+          if (crBox) crBox.style.display = 'none';
+        }, 900);
+      });
+    }
+  </script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
