@@ -38,6 +38,7 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preload" href="assets/adn.splinecode" as="fetch" crossorigin="anonymous">
 </head>
 <body>
 
@@ -304,6 +305,25 @@
   <script>lucide.createIcons();</script>
   <script src="js/main.js"></script>
   <script type="module">
+    const stage = document.getElementById('adnStage');
+    if (stage) {
+      (async () => {
+        try {
+          const { Application } = await import('https://unpkg.com/@splinetool/runtime/build/runtime.js');
+          const canvas = document.createElement('canvas');
+          canvas.style.opacity = '0';
+          canvas.style.transition = 'opacity .9s ease';
+          stage.innerHTML = '';
+          stage.appendChild(canvas);
+          const app = new Application(canvas);
+          await app.load('assets/adn.splinecode');
+          requestAnimationFrame(() => { canvas.style.opacity = '1'; });
+        } catch (e) {
+          console.warn('Spline no disponible: fallback activo');
+        }
+      })();
+    }
+  </script>
   const stage = document.getElementById('adnStage');
   if (stage) {
     const io = new IntersectionObserver(async (entries) => {
