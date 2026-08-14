@@ -310,7 +310,7 @@
     if (stage) {
       (async () => {
         try {
-          const { Application } = await import('js/spline-runtime.js');
+          const { Application } = await import('./js/spline-runtime.js');
           const canvas = document.createElement('canvas');
           canvas.style.opacity = '0';
           canvas.style.transition = 'opacity .9s ease';
@@ -320,7 +320,7 @@
           await app.load('assets/adn.splinecode');
           requestAnimationFrame(() => { canvas.style.opacity = '1'; });
         } catch (e) {
-          console.warn('Spline no disponible: fallback activo');
+          console.warn('Spline no disponible:', e);
         }
       })();
     }
