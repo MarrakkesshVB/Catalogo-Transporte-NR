@@ -107,8 +107,32 @@
     </a>
   </div>
 
+  <!-- ===== SECCIÓN ADN (SPLINE) — HERO DE LA PÁGINA ===== -->
+  <section class="adn-section" id="adnSection">
+    <div class="adn-stage" id="adnStage">
+      <div class="adn-fallback">🧬</div>
+    </div>
+    <div class="adn-content">
+      <p class="adn-eyebrow">NUESTRO ADN</p>
+      <h2 class="adn-title">El ADN que nos mueve</h2>
+      <p class="adn-text">20 años de ruta escritos en nuestro código: puntualidad, seguridad y confianza.</p>
+      <div class="adn-ctas">
+        <a href="programar-envio.html" class="btn-primary-orange"><span>PROGRAMAR ENVÍO</span></a>
+        <a href="#hitos" class="adn-cta-ghost">CONOCÉ LA HISTORIA</a>
+      </div>
+      <div class="adn-stats">
+        <div><strong>+20</strong><span>Años de ruta</span></div>
+        <div><strong>+15.000</strong><span>Clientes activos</span></div>
+        <div><strong>99.8%</strong><span>Entregas a tiempo</span></div>
+        <div><strong>24/7</strong><span>Monitoreo GPS</span></div>
+      </div>
+    </div>
+    <div class="adn-side-label">TRANSPORTE NUEVA ROMA — DESDE 2004</div>
+    <div class="adn-scroll-hint"><span></span>SCROLL</div>
+  </section>
+
   <!-- MAIN EDITORIAL CONTENT -->
-  <main class="content-layer" style="padding-top: 3rem; padding-bottom: 5rem;">
+  <main class="content-layer" id="hitos" style="padding-top: 3rem; padding-bottom: 5rem;">
     <div class="container-editorial">
       
       <!-- Page Hero Header -->
@@ -279,5 +303,25 @@
 
   <script>lucide.createIcons();</script>
   <script src="js/main.js"></script>
+  <script type="module">
+  const stage = document.getElementById('adnStage');
+  if (stage) {
+    const io = new IntersectionObserver(async (entries) => {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      try {
+        const { Application } = await import('https://unpkg.com/@splinetool/runtime/build/runtime.js');
+        const canvas = document.createElement('canvas');
+        stage.innerHTML = '';
+        stage.appendChild(canvas);
+        const app = new Application(canvas);
+        await app.load('assets/adn.splinecode');
+      } catch (e) {
+        console.warn('Spline no disponible: fallback activo');
+      }
+    }, { rootMargin: '200px' });
+    io.observe(stage);
+  }
+  </script>
 </body>
 </html>
