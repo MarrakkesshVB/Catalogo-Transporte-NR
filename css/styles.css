@@ -1392,3 +1392,6 @@ body {
   0%,100%{opacity:.15;transform:scale(.95)}
   50%{opacity:.5;transform:scale(1.12)}
 }
+
+/* ===== ADN v8: fondo unificado sin salto de color ===== */
+.adn-section{background:#181818}
